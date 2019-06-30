@@ -22,19 +22,53 @@
         "Snippets"
     ],
     "keywords": [
-        "ruby",
+        "rails",
+        "ROR",
         "RoR",
-        "rails"
+        "Ruby on Rails",
+        "erb",
+        "slim"
     ],
     "contributes": {
         "snippets": [
             {
-                "language": "ruby",
-                "path": "./snippets/ruby.json"
+                "language": "slim",
+                "path": "./snippets/erb.json"
             },
             {
                 "language": "html",
                 "path": "./snippets/erb.json"
+            },
+            {
+                "language": "ruby",
+                "path": "./snippets/ruby.json"
+            }
+        ],
+        "languages": [
+            {
+                "id": "html",
+                "aliases": [
+                    "html.erb"
+                ],
+                "extensions": [
+                    ".html.erb"
+                ]
+            },
+            {
+                "id": "slim",
+                "aliases": [
+                    "html.slim"
+                ],
+                "extensions": [
+                    ".html.slim"
+                ]
+            }
+        ],
+        "grammars": [
+            {
+                "language": "html",
+                "scopeName": "text.html.erb",
+                "path": "./syntaxes/erb.tmLanguage"
             }
         ]
     }
