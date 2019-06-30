@@ -1,0 +1,22 @@
+{
+    "name": "ruby-and-rails-snippets",
+    "publisher": "Cjay",
+    "displayName": "Ruby and Rails Snippets",
+    "description": "Snippets for ruby and rails",
+    "icon": "icon/rails.png",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.35.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "ruby",
+                "path": "./snippets/snippets.json"
+            }
+        ]
+    }
+}
