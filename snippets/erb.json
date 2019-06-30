@@ -1,17 +1,13 @@
 {
   "ruby-expression(<% %>)": {
     "prefix": "pre",
-    "body": [
-      "<% $1 %>"
-    ],
-    "description": "rails expression(<% %>)"
+    "body": "<% $1 %>$0",
+    "description": "rails expression for <% %>"
   },
   "ruby-expression-block(<% %>)": {
     "prefix": "preb",
-    "body": [
-      "<% $1 %>\n\n<% end %>"
-    ],
-    "description": "rails expression(<% %>)"
+    "body": "<% $1 %>\n\t$0\n<% end %>",
+    "description": "rails expression block with end"
   },
   "ruby-expression(<%= %>)": {
     "prefix": "pre-",
