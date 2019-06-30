@@ -29,12 +29,12 @@
     "contributes": {
         "snippets": [
             {
-                "language": "html",
-                "path": "./snippets/erb.json"
-            },
-            {
                 "language": "ruby",
                 "path": "./snippets/ruby.json"
+            },
+            {
+                "language": "html",
+                "path": "./snippets/erb.json"
             }
         ]
     }
