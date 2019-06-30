@@ -29,8 +29,16 @@
     "contributes": {
         "snippets": [
             {
+                "language": "slim",
+                "path": "./snippets/slim.json"
+            },
+            {
+                "language": "html",
+                "path": "./snippets/erb.json"
+            },
+            {
                 "language": "ruby",
-                "path": "./snippets/snippets.json"
+                "path": "./snippets/ruby.json"
             }
         ]
     }
