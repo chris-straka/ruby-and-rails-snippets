@@ -1,8 +1,8 @@
 ## Ruby and Rails Snippets for Visual Studio Code 
 
-Very similar to [Vense's rails extension](https://marketplace.visualstudio.com/items?itemName=Vense.rails-snippets) but with my own twists and added snippets :smile:
+Very similar to [Vense's rails extension](https://marketplace.visualstudio.com/items?itemName=Vense.rails-snippets) and [Peng Lv's snippets](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby) but with my own twists and added snippets :smile:
 
-I plan to modify and extend this snippets pack as time goes on
+I plan to modify, extend and add more to this over time.
 
 ##### Supported file extensions
 
@@ -15,9 +15,499 @@ I plan to modify and extend this snippets pack as time goes on
 2. `$1` is where the snippet starts. `$0` is where the snippet ends.
 3. Press `tab` to move onto the next part of a snippet.
 ___
-## - `html.erb` / Rails -
+# --- Ruby  ---
+#### [do] statement
+```ruby
+do
+  $1
+end
+```
+#### [if] statement 
+```ruby
+if $1
+  $2
+end
+```
+#### [ifelse] statement 
+```ruby
+if $1
+  $2
+else
+  $3
+end
+```
+#### [if elsif] statement 
+```ruby
+if $1
+  $2
+elsif
+  $3
+end
+```
+#### [if elsif else] statement 
+```ruby
+if $1
+  $2
+elsif
+  $3
+else
+  $4
+end
+```
+#### [first] statement 
+```ruby
+first(${quantity})
+```
+#### [find_by]
+```ruby
+find_by(${1:key}: ${2:value})
+```
+#### [find_by_params]
+```ruby
+find_by(${1:id_name}: params[:${2:param}])
+```
+#### [where]
+```ruby
+where(${condition})
+```
+#### [increment]
+```ruby
+increment(:${1:id})
+``` 
+#### [order]
+```ruby
+order(${1:column}: :${2:desc})
+``` 
+#### [limit]
+```ruby
+limit(${quantity})
+``` 
+#### [def] function
+```ruby
+def ${1:name}
+  $2
+end
+```
+#### [map] map function
+```ruby
+${1:array}.map { |${2:i}| $0}
+```
+#### [select] select function
+```ruby
+${1:array}.select { |${2:i}| $0}
+```
+#### [inject] inject function
+```ruby
+${1:array}.inject(${2:0}) { |{$3:acc}, ${4:i}| $0}
+```
+#### [all?] all? 
+```ruby
+${1:array}.all? {|${2:i}| $0}
+```
+#### [any?] any? 
+```ruby
+${1:array}.any? {|${2:i}| $0}
+```
+#### [begin] exception block
+```ruby
+begin
+  $1
+rescue => exception
+  $0
+end
+```
+#### [begin ensure] exception block with ensure
+```ruby
+begin
+  $1
+rescue => exception
+  $2
+ensure 
+  $3
+end
+```
+#### [begin else] exception block with else
+```ruby
+begin
+  $1
+rescue => exception
+  $2
+else
+  $3
+end
+```
+#### [begin else ensure] exception block with else and ensure
+```ruby
+begin
+  $1
+rescue => exception
+  $2
+else
+  $3
+ensure 
+  $4
+end
+```
+#### [class_initialize] create a class with empty initialize
+```ruby
+class ${1:ClassName}
+  def initialize
+    $0
+  end
+end
+```
+#### [cla1] Create a class and initialize 1 property 
+```ruby
+class ${1:ClassName}
+  def initialize(${2:first})
+    @${2:first} = ${2:first}
+  end
+  $0
+end
+```
+#### [cla2] Create a class and initialize 2 properties 
+```ruby
+class ${1:ClassName}
+  def initialize(${2:first}, ${3:second})
+    @${2:first} = ${2:first}
+    @${3:second} = ${3:second}
+  end
+  $0
+end
+```
+#### [cla3] Create a class by initializing a property 
+```ruby
+class ${1:ClassName}
+  def initialize(${2:first}, ${3:second}, ${4:third})
+    @${2:first} = ${2:first}
+    @${3:second} = ${3:second}
+    @${4:third} = ${4:third}
+  end
+  $0
+end
+```
+#### [clex] Create a class that extends another
+```ruby
+class ${1:ClassName} < ${2:ParentClass}
+  $0
+end
+```
+#### [class] class definition
+```ruby
+class ${1:ClassName}
+  $0
+end
+```
+#### [for] simple for loop
+```ruby
+for ${1:value} in ${2:enumerable} do
+  $0
+end
+```
+#### [each] forEach loop
+```ruby
+${1:items}.each do |${2:item}|
+  $0
+end
+```
+#### [loop] forever loop
+```ruby
+loop do
+  $0
+end
+```
+#### [module] create a module definition
+```ruby
+module ${1:ModuleName}
+  $0
+end
+```
+#### [unless] unless
+```ruby
+unless ${1:test} 
+  $0
+end 
+```
+#### [unless else] unless
+```ruby
+unless ${1:test}
+  $2
+else 
+  $3
+end 
+```
+#### [until] until loop
+```ruby
+until ${1:test}
+  $0
+end
+```
+#### [while] while loop
+```ruby
+while ${1:test}
+  $0
+end
+```
+#### [rake] Create a rake task
+```ruby
+namespace :{1} do
+  desc '$2',
+  task $3: :environment do
+    $4
+  end
+end
+```
+# REMEMBER TO DO YOUR BOOSTNOTE JS CONVERSIONS
+# --- Ruby on Rails / `.rb` ---
+#### [only] 
+```ruby
+only: %i[${1:method}]
+```
+#### [except] 
+```ruby
+except: %i[${1:method}]
+```
+## Rails Routing
+#### [get] get route 
+```ruby
+get '/${1:route}', to: '${2:controller}#${3:method}'
+```
+#### [post] post route
+```ruby
+post '/${1:route}', to: '${2:controller}#${3:method}'
+```
+#### [patch] patch route
+```ruby
+patch '/${1:route}', to: '${2:controller}#${3:method}'
+```
+#### [put] put route
+```ruby
+put '/${1:route}', to: '${2:controller}#${3:method}'
+```
+#### [delete] delete route
+```ruby
+delete '/${1:route}', to: '${2:controller}#${3:method}'
+```
+#### [res] resources
+```ruby
+resources :${res_name}
+```
+#### [resb] res_block
+```ruby
+resources :${1:res_name} do
+  $2
+end
+```
+#### [rescb] res_collection_block
+```ruby
+resources :${1:res_name} do
+  collection do
+    $2
+  end
+end
+```
+#### [resmem] res_member
+```ruby
+resources :${1:res_name} do
+  member do
+    $2
+  end
+end
+```
+#### [re] resources
+```ruby
+resource :${res_name}
+```
+#### [reb] res_block
+```ruby
+resource :${1:res_name} do
+  $2
+end
+```
+#### [recb] res_collection_block
+```ruby
+resource :${1:res_name} do
+  collection do
+    $2
+  end
+end
+```
+#### [remem] res_member
+```ruby
+resource :${1:res_name} do
+  member do
+    $2
+  end
+end
+```
+#### [mem] member block
+```ruby
+member do
+  $1
+end
+```
+#### [collection] collection block
+```ruby
+collection do
+  $1
+end
+```
+## Redirect
+#### [render] render path
+```ruby
+render ${1:path}
+```
+#### [redirect_to] redirect_to
+```ruby
+redirect_to ${1:path}
+```
+#### [redirect_to_msg] redirect_to with msg
+```ruby
+redirect_to ${path}, notice: '${msg}'
+```
+## Model
+#### [has_one] has_one 
+```ruby
+has_one :$0
+```
+#### [dep] dependent
+```ruby
+dependent: :${1:id}
+```
+#### [has_one_dep] has_one_dependent
+```ruby
+has_one :${1:id}, dependent: :${2:type}
+```
+#### [has_many] has_many
+```ruby
+has_many :$0
+```
+#### [has_many_through] has_many_through
+```ruby
+has_many :${1:model1}, through: :${2:model2}
+```
+#### [has_many_dependent] has_many_dependent
+```ruby
+has_many :${1:id}, dependent: :${2:type}
+```
+#### [belongs_to] belongs_to
+```ruby
+belongs_to :
+```
+#### [belongs_to_cache] belongs_to_cache
+```ruby
+belongs_to :${1:id}, cache: ${2:true}
+```
+#### [has_and_belongs_to_many] belongs_to_cache
+```ruby
+has_and_belongs_to_many :${1:id}
+```
+## Columns
+#### [add_column] add_column
+```ruby
+add_column :${1:table}, :${2:column}, :${3:type}
+```
+#### [add_reference] add_reference
+```ruby
+add_reference :${1:table}, :${2:column}, foreign_key: tru
+```
+#### t.[x] table column property
+x = binary/boolean/date/datetime/decimal/float/integer/references/string/
+text/time/timestamp/timestamps
+## Params
+#### [params] params
+```ruby
+params.require(:${1:id_name}).permit(:${2:variable})
+```
+#### [req] req
+```ruby
+require(:$1)$0
+```
+#### [permit] permit
+```ruby
+permit(${1:id});
+```
+## Controller
+#### [controller] controller
+```ruby
+class ${1:Name}Controller < ApplicationController
+  $2
+end
+```
+#### [index] index method
+```ruby
+def index 
+  $1
+end 
+```
+#### [create] create method
+```ruby
+def create 
+  $1
+end 
+```
+#### [new] new method
+```ruby
+def new 
+  $1
+end 
+```
+#### [edit] edit method
+```ruby
+def edit 
+  $1
+end 
+```
+#### [show] show method
+```ruby
+def show 
+  $1
+end 
+```
+#### [update] update method
+```ruby
+def update 
+  $1
+end 
+```
+#### [destroy] destroy method
+```ruby
+def destroy 
+  $1
+end 
+```
+#### [crud] full crud
+```ruby
+def index
+end
+def new  
+end
+def create
+end
+def edit
+end
+def update
+end
+def show
+end
+def destroy
+end
+```
+#### [before_action] before_action
+```ruby
+before_action :${1:id}
+```
+
+
+# --- `html.erb` / `html.slim` --- 
 #### [pre] template exec tag `<% %>`
+```javascript
+<% $1 %>
+```
 #### [pe] template render tag `<%= %>`
+```javascript
+<%= $1 %>
+```
 #### [preb] template exec tag block `<%`
 ```javascript
 <% $1 %>
@@ -163,7 +653,7 @@ ${1:path}_path
 new_${1:path}_path
 ```
 #### [editpath] edit_path
-```ruby
+```javascript
 edit_${1:path}_path(${2:variable})
 ```
 #### [if] if statement 
@@ -225,257 +715,4 @@ edit_${1:path}_path(${2:variable})
 <% end %>
 ```
 ___
-
-# `.rb` / Rails
-#### [only] 
-```ruby
-only: %i[${1:method}]
-```
-#### [except] 
-```ruby
-except: %i[${1:method}]
-```
-## Rails Routing
-#### [get] get route 
-```ruby
-get '/${1:route}', to: '${2:controller}#${3:method}'
-```
-#### [post] post route
-```ruby
-post '/${1:route}', to: '${2:controller}#${3:method}'
-```
-#### [patch] patch route
-```ruby
-patch '/${1:route}', to: '${2:controller}#${3:method}'
-```
-#### [put] put route
-```ruby
-put '/${1:route}', to: '${2:controller}#${3:method}'
-```
-#### [delete] delete route
-```ruby
-delete '/${1:route}', to: '${2:controller}#${3:method}'
-```
-#### [res] resources
-```ruby
-resources :${res_name}
-```
-#### [resb] res_block
-```ruby
-resources :${1:res_name} do
-  $2
-end
-```
-#### [rescb] res_collection_block
-```ruby
-resources :${1:res_name} do
-  collection do
-    $2
-  end
-end
-```
-#### [resmem] res_member
-```ruby
-resources :${1:res_name} do
-  member do
-    $2
-  end
-end
-```
-#### [re] resources
-```ruby
-resource :${res_name}
-```
-#### [reb] res_block
-```ruby
-resource :${1:res_name} do
-  $2
-end
-```
-#### [recb] res_collection_block
-```ruby
-resource :${1:res_name} do
-  collection do
-    $2
-  end
-end
-```
-#### [remem] res_member
-```ruby
-resource :${1:res_name} do
-  member do
-    $2
-  end
-end
-```
-#### [mem] member block
-```ruby
-member do
-  $1
-end
-```
-#### [collection] collection block
-```ruby
-collection do
-  $1
-end
-```
-## Redirect
-#### [render] render path
-```ruby
-render ${1:path}
-```
-#### [redirect_to] redirect_to
-```ruby
-redirect_to ${1:path}
-```
-#### [redirect_to_msg] redirect_to with msg
-```ruby
-redirect_to ${path}, notice: '${msg}'
-```
-## Model
-#### [has_one] has_one 
-```ruby
-has_one :$0
-```
-#### [dep] dependant
-```ruby
-dependent: :${1:id}
-```
-#### [has_one_dep] has_one_dependent
-```ruby
-has_one :${1:id}, dependent: :${2:type}
-```
-#### [has_many] has_many
-```ruby
-has_many :$0
-```
-#### [has_many_through] has_many_through
-```ruby
-has_many :${1:model1}, through: :${2:model2}
-```
-#### [has_many_dependent] has_many_dependent
-```ruby
-has_many :${1:id}, dependent: :${2:type}
-```
-#### [belongs_to] belongs_to
-```ruby
-belongs_to :
-```
-#### [belongs_to_cache] belongs_to_cache
-```ruby
-belongs_to :${1:id}, cache: ${2:true}
-```
-#### [has_and_belongs_to_many] belongs_to_cache
-```ruby
-has_and_belongs_to_many :${1:id}
-```
-## Columns
-#### [add_column] add_column
-```ruby
-add_column :${1:table}, :${2:column}, :${3:type}
-```
-#### [add_reference] add_reference
-```ruby
-add_reference :${1:table}, :${2:column}, foreign_key: tru
-```
-#### t.[x] table column property
-x = binary/boolean/date/datetime/decimal/float/integer/references/string/
-text/time/timestamp/timestamps
-## Params
-#### [params] params
-```ruby
-params.require(:${1:id_name}).permit(:${2:variable})
-```
-#### [req] req
-```ruby
-require(:$1)$0
-```
-#### [permit] permit
-```ruby
-permit(${1:id});
-```
-## Controller
-#### [controller] controller
-```ruby
-class ${1:Name}Controller < ApplicationController
-  $2
-end
-```
-#### [index] index method
-```ruby
-def index 
-  $1
-end 
-```
-#### [create] create method
-```ruby
-def create 
-  $1
-end 
-```
-#### [new] new method
-```ruby
-def new 
-  $1
-end 
-```
-#### [edit] edit method
-```ruby
-def edit 
-  $1
-end 
-```
-#### [show] show method
-```ruby
-def show 
-  $1
-end 
-```
-#### [update] update method
-```ruby
-def update 
-  $1
-end 
-```
-#### [destroy] destroy method
-```ruby
-def destroy 
-  $1
-end 
-```
-#### [crud] full crud
-```ruby
-def index
-end
-def new  
-end
-def create
-end
-def edit
-end
-def update
-end
-def show
-end
-def destroy
-end
-```
-#### [before_action] before_action
-```ruby
-before_action :id|
-```
-#Ruby
-|Prefix||
-|---|---|
-|if|if $1<br>&nbsp;&nbsp;$2<br>end|
-|if else|if $1<br>&nbsp;&nbsp;$2<br>else<br>&nbsp;&nbsp;$3<br>end|
-|if elsif|if $1<br>&nbsp;&nbsp;$2<br>elsif $3<br>&nbsp;&nbsp;$4<br>end|
-|if elsif else|if $1<br>&nbsp;&nbsp;$2<br>elsif $3<br>&nbsp;&nbsp;$4<br>else<br>&nbsp;&nbsp;$5<br>end|
-|first|first(quantity)|
-|find_by|find_by(id: params[:id])|
-|where|where(condition)|
-|increment|increment(:id)|
-|order|order(id: :desc)|
-|limit|limit(quantity)|
-|def|def {name}<br><br>end|
+# License - MIT

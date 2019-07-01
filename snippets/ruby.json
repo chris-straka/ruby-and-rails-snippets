@@ -1,4 +1,294 @@
 {
+  "do": {
+    "prefix": "do",
+    "body": "do\n\t$1\nend",
+    "description": "do block",
+    "scope": "source.ruby"
+  },
+  "if": {
+    "prefix": "if",
+    "body": "if $1\n\t$2\nend",
+    "description": "if block",
+    "scope": "source.ruby"
+  },
+  "if else": {
+    "prefix": "ifelse",
+    "body": "if $1\n\t$2\nelse\n\t$3\nend",
+    "description": "if else block",
+    "scope": "source.ruby"
+  },
+  "if elsif": {
+    "prefix": "if elsif",
+    "body": "if $1\n\t$2\nelseif\n\t$3\nend",
+    "description": "if elsif block",
+    "scope": "source.ruby"
+  },
+  "if elsif else": {
+    "prefix": "if elsif else",
+    "body": [
+      "if $1",
+      "\t$2",
+      "elsif $3",
+      "\t$4",
+      "else",
+      "\t$5",
+      "end"
+    ],
+    "description": "if elsif else block",
+    "scope": "source.ruby"
+  },
+  "first": {
+    "prefix": "first",
+    "body": "first(${quantity})",
+    "description": "first(quantity)",
+    "scope": "source.ruby"
+  },
+  "find_by": {
+    "prefix": "find_by",
+    "body": "find_by(${1:key}: ${2:value})",
+    "description": "find_by(key: value)",
+    "scope": "source.ruby"
+  },
+  "find_by_params": {
+    "prefix": "find_by_params",
+    "body": "find_by(${1:id_name}: params[:${2:param}])",
+    "description": "find_by(id_name: params[:param])",
+    "scope": "source.ruby"
+  },
+  "where": {
+    "prefix": "where",
+    "body": "where(${condition})",
+    "description": "where(condition)",
+    "scope": "source.ruby"
+  },
+  "increment": {
+    "prefix": "increment",
+    "body": "increment(:${1:id})",
+    "description": "increment(:id)",
+    "scope": "source.ruby"
+  },
+  "order": {
+    "prefix": "order",
+    "body": "order(${1:column}: :${2:desc})",
+    "description": "order(column: :desc)",
+    "scope": "source.ruby"
+  },
+  "limit": {
+    "prefix": "limit",
+    "body": "limit(${quantity})",
+    "description": "limit(quantity)",
+    "scope": "source.ruby"
+  },
+  "def": {
+    "prefix": "def",
+    "body": "def ${1:name}\n\t$2 end",
+    "description": "def",
+    "scope": "source.ruby"
+  },
+  "map": {
+    "prefix": "map",
+    "body": "${1:array}.map{ |${2:i}| $0}"
+  },
+  "select": {
+    "prefix": "select",
+    "body": "${1:array}.select { |${2:i}| $0}"
+  },
+  "inject": {
+    "prefix": "inject",
+    "body": "${1:array}.inject(${2:0}) { |{$3:acc}, ${4:i}| $0}"
+  },
+  "all?": {
+    "prefix": "all?",
+    "body": "${1:array}.all? {|${2:i}| $0}",
+    "description": "Returns true if the block never returns false"
+  },
+  "any?": {
+    "prefix": "any?",
+    "body": "${1:array}.any? {|${2:i}| $0}"
+  },
+  "Exception block": {
+    "prefix": "begin",
+    "body": [
+      "begin",
+      "\t$1",
+      "rescue => exception",
+      "\t",
+      "end"
+    ]
+  },
+  "Exception block with ensure": {
+    "prefix": "begin ensure",
+    "body": [
+      "begin",
+      "\t$1",
+      "rescue => exception",
+      "\t",
+      "ensure",
+      "\t",
+      "end"
+    ]
+  },
+  "Exception block with else": {
+    "prefix": "begin else",
+    "body": [
+      "begin",
+      "\t$1",
+      "rescue => exception",
+      "\t",
+      "else",
+      "\t",
+      "end"
+    ]
+  },
+  "Exception block with else and ensure": {
+    "prefix": "begin else ensure",
+    "body": [
+      "begin",
+      "\t$1",
+      "rescue => exception",
+      "\t$2",
+      "else",
+      "\t$3",
+      "ensure",
+      "\t$0",
+      "end"
+    ]
+  },
+  "ClassInit": {
+    "prefix": "class_initialize",
+    "body": [
+      "class ${1:ClassName}",
+      "\tdef initialize",
+      "\t\t$0",
+      "\tend",
+      "end"
+    ],
+    "description": "A class with empty initialize"
+  },
+  "Class1": {
+    "prefix": "cla1",
+    "body": [
+      "class ${1:ClassName}",
+      "\tdef initialize(${2:first})",
+      "\t\t@${2:first} = ${2:first}",
+      "\tend",
+      "\t$0",
+      "end"
+    ],
+    "description": "Class initializing one property"
+  },
+  "Class2": {
+    "prefix": "cla2",
+    "body": [
+      "class ${1:ClassName}",
+      "\tdef initialize(${2:first}, ${3:second})",
+      "\t\t@${2:first} = ${2:first}",
+      "\t\t@${3:second} = ${3:second}",
+      "\tend",
+      "\t$0",
+      "end"
+    ],
+    "description": "Class initializing two properties"
+  },
+  "Class3": {
+    "prefix": "cla3",
+    "body": [
+      "class ${1:ClassName}",
+      "\tdef initialize(${2:first}, ${3:second}, ${4:third})",
+      "\t\t@${2:first} = ${2:first}",
+      "\t\t@${3:second} = ${3:second}",
+      "\t\t@${4:third} = ${4:third}",
+      "\tend",
+      "\t$0",
+      "end"
+    ],
+    "description": "Class initializing three properties"
+  },
+  "ClassExtends": {
+    "prefix": "clex",
+    "body": "class {1:ClassName} < ${2:ParentClass}\n\t$0\nend",
+    "description": "Simple class extends"
+  },
+  "Class definition": {
+    "prefix": "class",
+    "body": [
+      "class ${1:ClassName}",
+      "\t$0",
+      "end"
+    ]
+  },
+  "for loop": {
+    "prefix": "for",
+    "body": [
+      "for ${1:value} in ${2:enumerable} do",
+      "\t$0",
+      "end"
+    ]
+  },
+  "for each loop": {
+    "prefix": "each",
+    "body": "${1:items}.each do |${2:item}|\n\t$0\nend"
+  },
+  "forever loop": {
+    "prefix": "loop",
+    "body": [
+      "loop do",
+      "\t$0",
+      "end"
+    ]
+  },
+  "Module definition": {
+    "prefix": "module",
+    "body": [
+      "module ${1:ModuleName}",
+      "\t$0",
+      "end"
+    ],
+    "description": "Create a module definition"
+  },
+  "unless": {
+    "prefix": "unless",
+    "body": "unless ${1:test}\n\t$0\nend",
+    "description": "unless ruby"
+  },
+  "unlessElse": {
+    "prefix": "unless else",
+    "body": [
+      "unless ${1:test}",
+      "\t$2",
+      "else",
+      "\t$3",
+      "end"
+    ]
+  },
+  "until loop": {
+    "prefix": "until",
+    "body": [
+      "until ${1:test}",
+      "\t$0",
+      "end"
+    ]
+  },
+  "while loop": {
+    "prefix": "while",
+    "body": [
+      "while ${1:test}",
+      "\t$0",
+      "end"
+    ]
+  },
+  "Rake Task": {
+    "prefix": "rake",
+    "description": "Create a Rake Task",
+    "body": [
+      "namespace :${1} do",
+      "\tdesc \"${2}\"",
+      "\ttask ${3}: :environment do",
+      "\t\t${4}",
+      "\tend",
+      "end"
+    ]
+  },
   "only": {
     "prefix": "only",
     "body": "only: %i[${1:method}]",
@@ -432,126 +722,6 @@
     "prefix": "before_action",
     "body": "before_action :${1:id}",
     "description": "before action",
-    "scope": "source.ruby"
-  },
-  "do": {
-    "prefix": "do",
-    "body": [
-      "do",
-      "$2",
-      "end"
-    ],
-    "description": "do block",
-    "scope": "source.ruby"
-  },
-  "if": {
-    "prefix": "if",
-    "body": [
-      "if $1 ",
-      "$2",
-      "end"
-    ],
-    "description": "if block",
-    "scope": "source.ruby"
-  },
-  "if else": {
-    "prefix": "if else",
-    "body": [
-      "if $1",
-      "$2",
-      "else",
-      "$3",
-      "end"
-    ],
-    "description": "if else block",
-    "scope": "source.ruby"
-  },
-  "if elsif": {
-    "prefix": "if elsif",
-    "body": [
-      "if $1",
-      "$2",
-      "elsif $3",
-      "$4",
-      "end"
-    ],
-    "description": "if elsif block",
-    "scope": "source.ruby"
-  },
-  "if elsif else": {
-    "prefix": "if elsif else",
-    "body": [
-      "if $1",
-      "$2",
-      "elsif $3",
-      "$4",
-      "else",
-      "$5",
-      "end"
-    ],
-    "description": "if elsif else block",
-    "scope": "source.ruby"
-  },
-  "first": {
-    "prefix": "first",
-    "body": "first(${quantity})",
-    "description": "first(quantity)",
-    "scope": "source.ruby"
-  },
-  "find_by": {
-    "prefix": "find_by",
-    "body": "find_by(${1:key}: ${2:value})",
-    "description": "find_by(key: value)",
-    "scope": "source.ruby"
-  },
-  "find_by_params": {
-    "prefix": "find_by_params",
-    "body": "find_by(${1:id_name}: params[:${2:param}])",
-    "description": "find_by(id_name: params[:param])",
-    "scope": "source.ruby"
-  },
-  "where": {
-    "prefix": "where",
-    "body": "where(${condition})",
-    "description": "where(condition)",
-    "scope": "source.ruby"
-  },
-  "increment": {
-    "prefix": "increment",
-    "body": "increment(:${1:id})",
-    "description": "increment(:id)",
-    "scope": "source.ruby"
-  },
-  "order": {
-    "prefix": "order",
-    "body": "order(${1:column}: :${2:desc})",
-    "description": "order(column: :desc)",
-    "scope": "source.ruby"
-  },
-  "limit": {
-    "prefix": "limit",
-    "body": "limit(${quantity})",
-    "description": "limit(quantity)",
-    "scope": "source.ruby"
-  },
-  "def": {
-    "prefix": "def",
-    "body": [
-      "def ${1:name}",
-      "$2",
-      "end"
-    ],
-    "description": "def",
-    "scope": "source.ruby"
-  },
-  "def (dm)": {
-    "prefix": "dm",
-    "body": [
-      "def ${1:name}",
-      "$2",
-      "end"
-    ],
-    "description": "def method",
     "scope": "source.ruby"
   }
 }
