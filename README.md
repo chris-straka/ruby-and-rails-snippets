@@ -1,22 +1,21 @@
 ## Ruby and Rails Snippets for Visual Studio Code 
 
-Pretty much [Vense's ruby extension](https://marketplace.visualstudio.com/items?itemName=Vense.rails-snippets) with my own twists.
+Very similar to [Vense's rails extension](https://marketplace.visualstudio.com/items?itemName=Vense.rails-snippets) but with my own twists and added snippets :smile:
 
-I intend to add more over time. 
+I plan to modify and extend this snippets pack as time goes on
 
-##### Supported languages (file extensions)
+##### Supported file extensions
 
 - Ruby (.rb)
 - EmbeddedRuby (html.erb)
-- Slim (html.erb)
+- Slim (html.slim)
 
 ##### tips
 1. `control/command + space` loads the snippet suggestions if they aren't shown right away.
 2. `$1` is where the snippet starts. `$0` is where the snippet ends.
 3. Press `tab` to move onto the next part of a snippet.
-4. You can usually hit `tab` long before you finish typing a snippet
-
-## - ERB / Rails -
+___
+## - `html.erb` / Rails -
 #### [pre] template exec tag `<% %>`
 #### [pe] template render tag `<%= %>`
 #### [preb] template exec tag block `<%`
@@ -226,92 +225,247 @@ edit_${1:path}_path(${2:variable})
 <% end %>
 ```
 ___
-# Ruby
 
-|Prefix||
-|---|---|
-|only|only: [:id]|
-|except|except: [:id]|
-## Route
-|Prefix||
-|---|---|
-|get|`get "/$1", to: "$2"`|
-|post|`post "/$1", to: "$2"`|
-|patch|`patch "/$1", to: "$2"`|
-|put|`put "/$1", to: "$2"`|
-|delete|`delete "/$1", to: "$2"`|
-|res|`resources :res_name`|
-|res_block|resources :res_name do<br>  <br>end|
-|res_collection_block|resources :res_name do<br>&nbsp;&nbsp;collection do<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;end<br>end|
-|res_member_block|resources :res_name do<br>&nbsp;&nbsp;member do<br><br>&nbsp;&nbsp;end<br>end|
-|re|resource :res_name|
-|re_block|resource :res_name do<br>  <br>end|
-|re_collection_block|resource :res_name do<br>&nbsp;&nbsp;collection do<br>&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;end<br>end|
-|re_member_block|resource :res_name do<br>&nbsp;&nbsp;member do<br><br>&nbsp;&nbsp;end<br>end|
-|member_block|member do<br><br>end<br>|
-|collection_block|collection do<br><br>end|
-
-
+# `.rb` / Rails
+#### [only] 
+```ruby
+only: %i[${1:method}]
+```
+#### [except] 
+```ruby
+except: %i[${1:method}]
+```
+## Rails Routing
+#### [get] get route 
+```ruby
+get '/${1:route}', to: '${2:controller}#${3:method}'
+```
+#### [post] post route
+```ruby
+post '/${1:route}', to: '${2:controller}#${3:method}'
+```
+#### [patch] patch route
+```ruby
+patch '/${1:route}', to: '${2:controller}#${3:method}'
+```
+#### [put] put route
+```ruby
+put '/${1:route}', to: '${2:controller}#${3:method}'
+```
+#### [delete] delete route
+```ruby
+delete '/${1:route}', to: '${2:controller}#${3:method}'
+```
+#### [res] resources
+```ruby
+resources :${res_name}
+```
+#### [resb] res_block
+```ruby
+resources :${1:res_name} do
+  $2
+end
+```
+#### [rescb] res_collection_block
+```ruby
+resources :${1:res_name} do
+  collection do
+    $2
+  end
+end
+```
+#### [resmem] res_member
+```ruby
+resources :${1:res_name} do
+  member do
+    $2
+  end
+end
+```
+#### [re] resources
+```ruby
+resource :${res_name}
+```
+#### [reb] res_block
+```ruby
+resource :${1:res_name} do
+  $2
+end
+```
+#### [recb] res_collection_block
+```ruby
+resource :${1:res_name} do
+  collection do
+    $2
+  end
+end
+```
+#### [remem] res_member
+```ruby
+resource :${1:res_name} do
+  member do
+    $2
+  end
+end
+```
+#### [mem] member block
+```ruby
+member do
+  $1
+end
+```
+#### [collection] collection block
+```ruby
+collection do
+  $1
+end
+```
 ## Redirect
-|Prefix||
-|---|---|
-|render|render path|
-|redirect_to|redirect_to path|
-|redirect_to_msg|redirect_to path, notice: "msg"|
-
+#### [render] render path
+```ruby
+render ${1:path}
+```
+#### [redirect_to] redirect_to
+```ruby
+redirect_to ${1:path}
+```
+#### [redirect_to_msg] redirect_to with msg
+```ruby
+redirect_to ${path}, notice: '${msg}'
+```
 ## Model
-|Prefix|shortcut||
-|---|---|---|
-|***relationship***|||
-|has_one||has_one :|
-|dependent||dependent: :id|
-|has_one_dependent||has_one :id, dependent: :type|
-|has_many||has_many :|
-|has_many_through||has_many :model1, through: :model2|
-|has_many_dependent||has_many :id, dependent: :type|
-|belongs_to||belongs_to :|
-|belongs_to_cache||belongs_to :id, cache: true|
-|has_and_belongs_to_many|habtm|has_and_belongs_to_many :id|
-|***column***|||
-|t.binary|tcbi|t.binary :|
-|t.boolean|tcb|t.boolean :|
-|t.date|tcda|t.date :|
-|t.datetime|tcdt|t.datetime :|
-|t.decimal|tcd|t.decimal :|
-|t.float|tcf|t.float :|
-|t.integer|tci|t.integer :|
-|t.references|tcr|t.references :|
-|t.string|tcs|t.string :|
-|t.text|tct|t.text :|
-|t.time|tcti|t.time :|
-|t.timestamp|tcts|t.timestamp :|
-|t.timestamps|tctss|t.timestamps|
-|validates||validates :column, presence: true|
-|add_column||add_column :table, :column, :type|
-|add_reference||add_reference :table, :column, foreign_key: true|
-|**Feature**|||
-
+#### [has_one] has_one 
+```ruby
+has_one :$0
+```
+#### [dep] dependant
+```ruby
+dependent: :${1:id}
+```
+#### [has_one_dep] has_one_dependent
+```ruby
+has_one :${1:id}, dependent: :${2:type}
+```
+#### [has_many] has_many
+```ruby
+has_many :$0
+```
+#### [has_many_through] has_many_through
+```ruby
+has_many :${1:model1}, through: :${2:model2}
+```
+#### [has_many_dependent] has_many_dependent
+```ruby
+has_many :${1:id}, dependent: :${2:type}
+```
+#### [belongs_to] belongs_to
+```ruby
+belongs_to :
+```
+#### [belongs_to_cache] belongs_to_cache
+```ruby
+belongs_to :${1:id}, cache: ${2:true}
+```
+#### [has_and_belongs_to_many] belongs_to_cache
+```ruby
+has_and_belongs_to_many :${1:id}
+```
+## Columns
+#### [add_column] add_column
+```ruby
+add_column :${1:table}, :${2:column}, :${3:type}
+```
+#### [add_reference] add_reference
+```ruby
+add_reference :${1:table}, :${2:column}, foreign_key: tru
+```
+#### t.[x] table column property
+x = binary/boolean/date/datetime/decimal/float/integer/references/string/
+text/time/timestamp/timestamps
 ## Params
-|Prefix||
-|---|---|
-|params|params.require(:id_name).permit(:variable)|
-|require|require(:id_name)|
-|permit|permit(:id_name)|
-
+#### [params] params
+```ruby
+params.require(:${1:id_name}).permit(:${2:variable})
+```
+#### [req] req
+```ruby
+require(:$1)$0
+```
+#### [permit] permit
+```ruby
+permit(${1:id});
+```
 ## Controller
-|Prefix|shortcut||
-|---|---|---|
-|controller||class Controller < ApplicationController<br> <br>end|
-|index||def index<br><br>end|
-|create||def create<br><br>end|
-|new||def new<br><br>end|
-|edit||def edit<br><br>end|
-|show||def show<br><br>end|
-|update||def update<br><br>end|
-|destroy||def destroy<br><br>end|
-|CRUD||def index<br><br>end<br><br>def new<br><br>end<br><br>def create<br><br>end<br><br>def edit<br><br>end<br><br>def update<br><br>end<br><br>def show<br><br>end<br><br>def destroy<br><br>end|
-|before_action|ba|before_action :id|
-## Others
+#### [controller] controller
+```ruby
+class ${1:Name}Controller < ApplicationController
+  $2
+end
+```
+#### [index] index method
+```ruby
+def index 
+  $1
+end 
+```
+#### [create] create method
+```ruby
+def create 
+  $1
+end 
+```
+#### [new] new method
+```ruby
+def new 
+  $1
+end 
+```
+#### [edit] edit method
+```ruby
+def edit 
+  $1
+end 
+```
+#### [show] show method
+```ruby
+def show 
+  $1
+end 
+```
+#### [update] update method
+```ruby
+def update 
+  $1
+end 
+```
+#### [destroy] destroy method
+```ruby
+def destroy 
+  $1
+end 
+```
+#### [crud] full crud
+```ruby
+def index
+end
+def new  
+end
+def create
+end
+def edit
+end
+def update
+end
+def show
+end
+def destroy
+end
+```
+#### [before_action] before_action
+```ruby
+before_action :id|
+```
+#Ruby
 |Prefix||
 |---|---|
 |if|if $1<br>&nbsp;&nbsp;$2<br>end|
