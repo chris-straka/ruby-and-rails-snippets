@@ -19,7 +19,7 @@
   },
   "if elsif": {
     "prefix": "if elsif",
-    "body": "if $1\n\t$2\nelseif\n\t$3\nend",
+    "body": "if $1\n\t$2\nelsif\n\t$3\nend",
     "description": "if elsif block",
     "scope": "source.ruby"
   },
@@ -81,7 +81,7 @@
   },
   "def": {
     "prefix": "def",
-    "body": "def ${1:name}\n\t$2 end",
+    "body": "def ${1:name}\n\t$0\nend",
     "description": "def",
     "scope": "source.ruby"
   },
@@ -95,7 +95,7 @@
   },
   "inject": {
     "prefix": "inject",
-    "body": "${1:array}.inject(${2:0}) { |{$3:acc}, ${4:i}| $0}"
+    "body": "${1:array}.inject(${2:0}) { |${3:acc}, ${4:i}| $0}"
   },
   "all?": {
     "prefix": "all?",
@@ -237,6 +237,22 @@
       "end"
     ]
   },
+  "until loop": {
+    "prefix": "until",
+    "body": [
+      "until ${1:test}",
+      "\t$0",
+      "end"
+    ]
+  },
+  "while loop": {
+    "prefix": "while",
+    "body": [
+      "while ${1:test}",
+      "\t$0",
+      "end"
+    ]
+  },
   "Module definition": {
     "prefix": "module",
     "body": [
@@ -258,22 +274,6 @@
       "\t$2",
       "else",
       "\t$3",
-      "end"
-    ]
-  },
-  "until loop": {
-    "prefix": "until",
-    "body": [
-      "until ${1:test}",
-      "\t$0",
-      "end"
-    ]
-  },
-  "while loop": {
-    "prefix": "while",
-    "body": [
-      "while ${1:test}",
-      "\t$0",
       "end"
     ]
   },
@@ -360,7 +360,7 @@
     "scope": "meta.rails.routes"
   },
   "resources_member": {
-    "prefix": "resmem",
+    "prefix": "resmember",
     "body": [
       "resources :${1:res_name} do",
       "\tmember do",
@@ -400,7 +400,7 @@
     "scope": "meta.rails.routes"
   },
   "resource_member": {
-    "prefix": "remem",
+    "prefix": "re member",
     "body": [
       "resource :${1:res_name} do",
       "\tmember do",
@@ -412,7 +412,7 @@
     "scope": "meta.rails.routes"
   },
   "member": {
-    "prefix": "mem",
+    "prefix": "member",
     "body": [
       "member do",
       "\t$1",
@@ -607,7 +607,19 @@
   },
   "require": {
     "prefix": "req",
-    "body": "require(:$1)",
+    "body": "require '$1'$0",
+    "description": "require(:id)",
+    "scope": "source.ruby"
+  },
+  "requireAlt": {
+    "prefix": "reqq",
+    "body": "require(:$1)$0",
+    "description": "require(:id)",
+    "scope": "source.ruby"
+  },
+  "include": {
+    "prefix": "include",
+    "body": "include($1)$0",
     "description": "require(:id)",
     "scope": "source.ruby"
   },
@@ -620,7 +632,7 @@
   "controller": {
     "prefix": "controller",
     "body": [
-      "class ${1:name}Controller < ApplicationController",
+      "class ${1:Name}Controller < ApplicationController",
       "\t$2",
       "end"
     ],
@@ -671,7 +683,7 @@
     "prefix": "show",
     "body": [
       "def show",
-      "$1",
+      "\t$1",
       "end"
     ],
     "description": "method show",
@@ -681,7 +693,7 @@
     "prefix": "update",
     "body": [
       "def update",
-      "$1",
+      "\t$1",
       "end"
     ],
     "description": "method update",
@@ -691,7 +703,7 @@
     "prefix": "destroy",
     "body": [
       "def destroy",
-      "$1",
+      "\t$1",
       "end"
     ],
     "description": "method destroy",
@@ -701,7 +713,7 @@
     "prefix": "CRUD",
     "body": [
       "def index",
-      "\nend",
+      "\t$0\nend",
       "\ndef new",
       "\nend",
       "\ndef create",

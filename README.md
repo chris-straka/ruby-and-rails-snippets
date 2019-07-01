@@ -2,6 +2,8 @@
 
 Very similar to [Vense's rails extension](https://marketplace.visualstudio.com/items?itemName=Vense.rails-snippets) and [Peng Lv's snippets](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby) but with my own twists and added snippets :smile:
 
+<a href="https://imgflip.com/gif/34pykn"><img src="https://i.imgflip.com/34pykn.gif" title="made at imgflip.com"/></a>
+
 I plan to modify, extend and add more to this over time.
 
 ##### Supported file extensions
@@ -216,6 +218,18 @@ loop do
   $0
 end
 ```
+#### [while] while loop
+```ruby
+while ${1:test}
+  $0
+end
+```
+#### [until] until loop
+```ruby
+until ${1:test}
+  $0
+end
+```
 #### [module] create a module definition
 ```ruby
 module ${1:ModuleName}
@@ -236,18 +250,6 @@ else
   $3
 end 
 ```
-#### [until] until loop
-```ruby
-until ${1:test}
-  $0
-end
-```
-#### [while] while loop
-```ruby
-while ${1:test}
-  $0
-end
-```
 #### [rake] Create a rake task
 ```ruby
 namespace :{1} do
@@ -257,7 +259,6 @@ namespace :{1} do
   end
 end
 ```
-# REMEMBER TO DO YOUR BOOSTNOTE JS CONVERSIONS
 # --- Ruby on Rails / `.rb` ---
 #### [only] 
 ```ruby
@@ -306,7 +307,7 @@ resources :${1:res_name} do
   end
 end
 ```
-#### [resmem] res_member
+#### [resmember] res_member
 ```ruby
 resources :${1:res_name} do
   member do
@@ -332,7 +333,7 @@ resource :${1:res_name} do
   end
 end
 ```
-#### [remem] res_member
+#### [re member] res_member
 ```ruby
 resource :${1:res_name} do
   member do
@@ -340,7 +341,7 @@ resource :${1:res_name} do
   end
 end
 ```
-#### [mem] member block
+#### [member] member block
 ```ruby
 member do
   $1
@@ -409,11 +410,10 @@ add_column :${1:table}, :${2:column}, :${3:type}
 ```
 #### [add_reference] add_reference
 ```ruby
-add_reference :${1:table}, :${2:column}, foreign_key: tru
+add_reference :${1:table}, :${2:column}, foreign_key: true
 ```
 #### t.[x] table column property
-x = binary/boolean/date/datetime/decimal/float/integer/references/string/
-text/time/timestamp/timestamps
+`x = binary/boolean/date/datetime/decimal/float/integer/references/string/text/time/timestamp/timestamps`
 ## Params
 #### [params] params
 ```ruby
@@ -421,7 +421,15 @@ params.require(:${1:id_name}).permit(:${2:variable})
 ```
 #### [req] req
 ```ruby
+require '$1'$0
+```
+#### [reqq] alternative req
+```ruby
 require(:$1)$0
+```
+#### [include] include
+```ruby
+include($1)$0
 ```
 #### [permit] permit
 ```ruby
@@ -497,8 +505,6 @@ end
 ```ruby
 before_action :${1:id}
 ```
-
-
 # --- `html.erb` / `html.slim` --- 
 #### [pre] template exec tag `<% %>`
 ```javascript
@@ -542,7 +548,7 @@ before_action :${1:id}
 ```
 #### [selecttag] select_tag
 ```javascript
-<%= select_tag (:${1:id_name}, :${2:options_for_select(options)} %>
+<%= select_tag (:${1:id_name}, options_for_select(${2:options}))%>
 ```
 #### [colorfield] color_field
 ```javascript
@@ -668,9 +674,9 @@ edit_${1:path}_path(${2:variable})
 ```
 #### [elsif] elsif
 ```javascript
-<% elsif ${1:truevalue} %>
+<% elsif $1 %>$0
 ```
-#### [if else] if else statement 
+#### [ifelse] if else statement 
 ```javascript
 <% if $1 %>
   $2

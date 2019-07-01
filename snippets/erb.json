@@ -59,7 +59,7 @@
   },
   "options_for_select": {
     "prefix": "options_for_select",
-    "body": " options_for_select([${0:options}]) ",
+    "body": "options_for_select([${1:options}])$0",
     "description": "rails options_for_select -- example:[['Lisbon', 1], ['Madrid', 2], ...], 2"
   },
   "render": {
@@ -206,7 +206,7 @@
   },
   "elsif": {
     "prefix": "elsif",
-    "body": "<% elsif ${1:truevalue} %>",
+    "body": "<% elsif $1 %>$0",
     "description": "elsif"
   },
   "if else": {
