@@ -735,5 +735,10 @@
     "body": "before_action :${1:id}",
     "description": "before action",
     "scope": "source.ruby"
+  },
+  "frozenStringLiteral": {
+    "prefix": "frozenstring",
+    "body": "# frozen_string_literal: true",
+    "description": "May be deprecated in Ruby 3 but until then..."
   }
 }

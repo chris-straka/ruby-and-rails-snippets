@@ -721,4 +721,9 @@ edit_${1:path}_path(${2:variable})
 <% end %>
 ```
 ___
+# --- Other ---
+#### [frozenstring] 
+```ruby
+# frozen_string_literal_true
+```
 # License - MIT
