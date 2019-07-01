@@ -9,7 +9,7 @@ I plan to modify, extend and add more to this over time.
 ##### Supported file extensions
 
 - Ruby (.rb)
-- EmbeddedRuby (html.erb)
+- Embedded Ruby (html.erb)
 - Slim (html.slim)
 
 ##### tips
@@ -259,7 +259,7 @@ namespace :{1} do
   end
 end
 ```
-# --- Ruby on Rails / `.rb` ---
+# --- Ruby on Rails / .rb ---
 #### [only] 
 ```ruby
 only: %i[${1:method}]
@@ -505,7 +505,7 @@ end
 ```ruby
 before_action :${1:id}
 ```
-# --- `html.erb` / `html.slim` --- 
+# --- html.erb / html.slim --- 
 #### [pre] template exec tag `<% %>`
 ```javascript
 <% $1 %>
