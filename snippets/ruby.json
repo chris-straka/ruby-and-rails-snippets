@@ -738,7 +738,7 @@
   },
   "frozenStringLiteral": {
     "prefix": "frozenstring",
-    "body": "# frozen_string_literal: true",
+    "body": "# frozen_string_literal: true$0",
     "description": "May be deprecated in Ruby 3 but until then..."
   }
 }

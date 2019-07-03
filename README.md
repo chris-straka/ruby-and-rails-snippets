@@ -1,6 +1,6 @@
 ## Ruby and Rails Snippets for Visual Studio Code 
 
-Very similar to [Vense's rails extension](https://marketplace.visualstudio.com/items?itemName=Vense.rails-snippets) and [Peng Lv's snippets](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby) but with my own twists and added snippets :smile:
+Very similar to [Vense's rails extension](https://marketplace.visualstudio.com/items?itemName=Vense.rails-snippets) and [Peng Lv's snippets](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby) but with my own twists and added snippets :)
 
 <a href="https://imgflip.com/gif/34pykn"><img src="https://i.imgflip.com/34pykn.gif" title="made at imgflip.com"/></a>
 
@@ -64,23 +64,23 @@ first(${quantity})
 ```ruby
 find_by(${1:key}: ${2:value})
 ```
-#### [find_by_params]
+#### [find_by_params] find_by_params
 ```ruby
 find_by(${1:id_name}: params[:${2:param}])
 ```
-#### [where]
+#### [where] where
 ```ruby
 where(${condition})
 ```
-#### [increment]
+#### [increment] increment 
 ```ruby
 increment(:${1:id})
 ``` 
-#### [order]
+#### [order] order
 ```ruby
 order(${1:column}: :${2:desc})
 ``` 
-#### [limit]
+#### [limit] limit
 ```ruby
 limit(${quantity})
 ``` 
@@ -177,7 +177,7 @@ class ${1:ClassName}
   $0
 end
 ```
-#### [cla3] Create a class by initializing a property 
+#### [cla3] Create a class and initialize 3 properties 
 ```ruby
 class ${1:ClassName}
   def initialize(${2:first}, ${3:second}, ${4:third})
