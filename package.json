@@ -14,7 +14,7 @@
         "type": "git",
         "url": "https://github.com/Chris56974/ruby-and-rails-snippets"
     },
-    "version": "0.1.4",
+    "version": "0.1.5",
     "engines": {
         "vscode": "^1.35.0"
     },
