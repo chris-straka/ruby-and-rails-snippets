@@ -21,13 +21,13 @@ ___
 #### [do] statement
 ```ruby
 do
-  $1
+  $0
 end
 ```
 #### [if] statement 
 ```ruby
 if $1
-  $2
+  $0
 end
 ```
 #### [ifelse] statement 
@@ -35,7 +35,7 @@ end
 if $1
   $2
 else
-  $3
+  $0
 end
 ```
 #### [if elsif] statement 
@@ -43,7 +43,7 @@ end
 if $1
   $2
 elsif
-  $3
+  $0
 end
 ```
 #### [if elsif else] statement 
@@ -53,7 +53,7 @@ if $1
 elsif
   $3
 else
-  $4
+  $0
 end
 ```
 #### [first] statement 
@@ -356,7 +356,7 @@ end
 ## Redirect
 #### [render] render path
 ```ruby
-render ${1:path}
+render $0
 ```
 #### [redirect_to] redirect_to
 ```ruby

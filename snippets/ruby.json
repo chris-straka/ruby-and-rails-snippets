@@ -1,25 +1,25 @@
 {
   "do": {
     "prefix": "do",
-    "body": "do\n\t$1\nend",
+    "body": "do\n\t$0\nend",
     "description": "do block",
     "scope": "source.ruby"
   },
   "if": {
     "prefix": "if",
-    "body": "if $1\n\t$2\nend",
+    "body": "if $1\n\t$0\nend",
     "description": "if block",
     "scope": "source.ruby"
   },
   "if else": {
     "prefix": "ifelse",
-    "body": "if $1\n\t$2\nelse\n\t$3\nend",
+    "body": "if $1\n\t$2\nelse\n\t$0\nend",
     "description": "if else block",
     "scope": "source.ruby"
   },
   "if elsif": {
     "prefix": "if elsif",
-    "body": "if $1\n\t$2\nelsif\n\t$3\nend",
+    "body": "if $1\n\t$2\nelsif\n\t$0\nend",
     "description": "if elsif block",
     "scope": "source.ruby"
   },
@@ -31,7 +31,7 @@
       "elsif $3",
       "\t$4",
       "else",
-      "\t$5",
+      "\t$0",
       "end"
     ],
     "description": "if elsif else block",
@@ -433,7 +433,7 @@
   },
   "render": {
     "prefix": "render",
-    "body": "render ${1:path}",
+    "body": "render $0",
     "description": "render path",
     "scope": "source.ruby.rails"
   },
