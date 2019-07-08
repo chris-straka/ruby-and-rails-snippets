@@ -451,43 +451,43 @@ end
 #### [create] create method
 ```ruby
 def create 
-  $1
+  $0
 end 
 ```
 #### [new] new method
 ```ruby
 def new 
-  $1
+  $0
 end 
 ```
 #### [edit] edit method
 ```ruby
 def edit 
-  $1
+  $0
 end 
 ```
 #### [show] show method
 ```ruby
 def show 
-  $1
+  $0
 end 
 ```
 #### [update] update method
 ```ruby
 def update 
-  $1
+  $0
 end 
 ```
 #### [destroy] destroy method
 ```ruby
 def destroy 
-  $1
+  $0
 end 
 ```
 #### [crud] full crud
 ```ruby
 def index
-end
+end 
 def new  
 end
 def create

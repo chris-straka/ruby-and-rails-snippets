@@ -643,7 +643,7 @@
     "prefix": "index",
     "body": [
       "def index",
-      "\t$1",
+      "\t$0",
       "end"
     ],
     "description": "method index",
@@ -653,7 +653,7 @@
     "prefix": "create",
     "body": [
       "def create",
-      "\t$1",
+      "\t$0",
       "end"
     ],
     "description": "method create",
@@ -663,7 +663,7 @@
     "prefix": "new",
     "body": [
       "def new",
-      "\t$1",
+      "\t$0",
       "end"
     ],
     "description": "method new",
@@ -673,7 +673,7 @@
     "prefix": "edit",
     "body": [
       "def edit",
-      "\t$1",
+      "\t$0",
       "end"
     ],
     "description": "method edit",
@@ -683,7 +683,7 @@
     "prefix": "show",
     "body": [
       "def show",
-      "\t$1",
+      "\t$0",
       "end"
     ],
     "description": "method show",
@@ -693,7 +693,7 @@
     "prefix": "update",
     "body": [
       "def update",
-      "\t$1",
+      "\t$0",
       "end"
     ],
     "description": "method update",
@@ -703,7 +703,7 @@
     "prefix": "destroy",
     "body": [
       "def destroy",
-      "\t$1",
+      "\t$0",
       "end"
     ],
     "description": "method destroy",
