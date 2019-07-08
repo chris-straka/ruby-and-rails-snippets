@@ -743,7 +743,7 @@
   },
   "rubyPrettier": {
     "prefix": "rbprettier",
-    "body": "prettier --prefer-single-quotes false --write '**/*.rb'",
+    "body": "bundle exec rbprettier --write '**/*.rb'",
     "description": "gem 'prettier' and then bundle. Then copy and paste this into terminal"
   }
 }
