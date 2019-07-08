@@ -11,6 +11,11 @@
     "description": "if block",
     "scope": "source.ruby"
   },
+  "else": {
+    "prefix": "else",
+    "body": "else\n\t$0",
+    "description": "else statement"
+  },
   "if else": {
     "prefix": "ifelse",
     "body": "if $1\n\t$2\nelse\n\t$0\nend",
@@ -19,7 +24,7 @@
   },
   "if elsif": {
     "prefix": "if elsif",
-    "body": "if $1\n\t$2\nelsif\n\t$0\nend",
+    "body": "if $1\n\t$2\nelsif $3\n\t$0\nend",
     "description": "if elsif block",
     "scope": "source.ruby"
   },

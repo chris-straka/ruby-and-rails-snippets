@@ -30,6 +30,12 @@ if $1
   $0
 end
 ```
+#### [else] statement 
+```ruby
+else
+  $0
+end
+```
 #### [ifelse] statement 
 ```ruby
 if $1
