@@ -206,7 +206,7 @@
   },
   "ClassExtends": {
     "prefix": "clex",
-    "body": "class {1:ClassName} < ${2:ParentClass}\n\t$0\nend",
+    "body": "class ${1:ClassName} < ${2:ParentClass}\n\t$0\nend",
     "description": "Simple class extends"
   },
   "Class definition": {
