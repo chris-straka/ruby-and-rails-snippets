@@ -740,5 +740,10 @@
     "prefix": "frozenstring",
     "body": "# frozen_string_literal: true$0",
     "description": "May be deprecated in Ruby 3 but until then..."
+  },
+  "rubyPrettier": {
+    "prefix": "rbprettier",
+    "body": "prettier --prefer-single-quotes false --write '**/*.rb'",
+    "description": "gem 'prettier' and then bundle. Then copy and paste this into terminal"
   }
 }

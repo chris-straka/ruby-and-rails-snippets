@@ -726,4 +726,12 @@ ___
 ```ruby
 # frozen_string_literal_true
 ```
+#### [rbprettier] bundle exec rbprettier --write '**/*.rb'
+1. Add `gem 'prettier'` to your gemfile
+2. Run `bundle` in your terminal
+3. Optional -- create a `.prettierrc` file for configuration in the root of your project directory. [here's a link to the repo for rb prettier](https://github.com/prettier/plugin-ruby)
+4. Copy and paste this snippet into your terminal
+```ruby
+bundle exec rbprettier --write '**/*.rb'
+```
 # License - MIT
