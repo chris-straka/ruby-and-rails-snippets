@@ -605,6 +605,21 @@
     "description": "params.require(:id_name).permit(:variable)",
     "scope": "source.ruby"
   },
+  "param1": {
+    "prefix": "para1",
+    "body": "params['$1']$0",
+    "description": "parameter with single field"
+  },
+  "param2": {
+    "prefix": "para2",
+    "body": "params['$1']['$2']$0",
+    "description": "two parameters "
+  },
+  "param3": {
+    "prefix": "para3",
+    "body": "params['$1']['$2']['$3']$0",
+    "description": "three parameters"
+  },
   "require": {
     "prefix": "req",
     "body": "require '$1'$0",

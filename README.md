@@ -414,10 +414,14 @@ add_reference :${1:table}, :${2:column}, foreign_key: true
 ```
 #### t.[x] table column property
 `x = binary/boolean/date/datetime/decimal/float/integer/references/string/text/time/timestamp/timestamps`
-## Params
+## Params/Require
 #### [params] params
 ```ruby
 params.require(:${1:id_name}).permit(:${2:variable})
+```
+#### [para1/2/3] parameters
+```ruby
+params['$1']['$2']['$3']$0
 ```
 #### [req] req
 ```ruby
