@@ -765,5 +765,13 @@
     "prefix": "rbprettier",
     "body": "bundle exec rbprettier --write '**/*.rb'",
     "description": "gem 'prettier' and then bundle. Then copy and paste this into terminal"
+  },
+  "gitbashssh": {
+    "prefix": "gitbashssh",
+    "body": [
+      "eval $(ssh-agent -s)",
+      "ssh-add ~/.ssh/id_rsa"
+    ],
+    "description": "place into gitbash to save ssh key so you can push without entering your password"
   }
 }

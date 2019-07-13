@@ -4,7 +4,7 @@ Very similar to [Vense's rails extension](https://marketplace.visualstudio.com/i
 
 <a href="https://imgflip.com/gif/34pykn"><img src="https://i.imgflip.com/34pykn.gif" title="made at imgflip.com"/></a>
 
-I plan to modify, extend and add more to this over time.
+I plan to modify, extend and add more to this over time as I learn more about Ruby and Rails.
 
 ##### Supported file extensions
 
@@ -48,7 +48,7 @@ end
 ```ruby
 if $1
   $2
-elsif
+elsif $3
   $0
 end
 ```
@@ -739,9 +739,17 @@ ___
 #### [rbprettier] bundle exec rbprettier --write '**/*.rb'
 1. Add `gem 'prettier'` to your gemfile
 2. Run `bundle` in your terminal
-3. Optional -- create a `.prettierrc` file for configuration in the root of your project directory. [here's a link to the repo for rb prettier](https://github.com/prettier/plugin-ruby)
+3. Optionally create a `.prettierrc` file for configuration in the root of your project directory. [here's a link to the repo for rb prettier](https://github.com/prettier/plugin-ruby)
 4. Copy and paste this snippet into your terminal
 ```ruby
 bundle exec rbprettier --write '**/*.rb'
 ```
+#### [gitbashssh] enter into gitbash to avoid re-entering your password on pushes  
+```
+eval $(ssh-agent -s)
+ssh-add ~/.ssh/id_rsa
+```
+1. Copy and paste these two lines into your terminal
+2. Push to your repository without entering your password 
+
 # License - MIT
