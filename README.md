@@ -744,6 +744,7 @@ ___
 ```ruby
 bundle exec rbprettier --write '**/*.rb'
 ```
+
 #### [gitbashssh] enter into gitbash to avoid re-entering your password on pushes  
 ```
 eval $(ssh-agent -s)
