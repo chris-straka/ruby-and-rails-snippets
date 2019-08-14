@@ -1,4 +1,16 @@
 ## Ruby and Rails Snippets for Visual Studio Code 
+<p>
+  <a href="https://marketplace.visualstudio.com/items?itemName=Cjay.ruby-and-rails-snippets">
+    <img src="https://vsmarketplacebadge.apphb.com/version/Cjay.ruby-and-rails-snippets.svg">
+  </a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=Cjay.ruby-and-rails-snippets">
+    <img src="https://vsmarketplacebadge.apphb.com/installs/Cjay.ruby-and-rails-snippets.svg">
+  </a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=Cjay.ruby-and-rails-snippets">
+    <img src="https://vsmarketplacebadge.apphb.com/downloads-short/Cjay.ruby-and-rails-snippets.svg">
+  </a>
+</p>
+
 
 Very similar to [Vense's rails extension](https://marketplace.visualstudio.com/items?itemName=Vense.rails-snippets) and [Peng Lv's snippets](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby) but with my own twists and added snippets :)
 
