@@ -36,7 +36,7 @@
                 "path": "./snippets/erb.json"
             },
             {
-                "language": "html",
+                "language": "erb",
                 "path": "./snippets/erb.json"
             },
             {
