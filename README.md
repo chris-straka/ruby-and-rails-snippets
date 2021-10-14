@@ -1,4 +1,4 @@
-# Ruby and Rails Snippets for Visual Studio Code
+# Ruby and Rails Snippets for Visual Studio Code (Vim/Intellisense Bias)
 
 <!-- markdownlint-disable MD033 -->
 <p>
@@ -13,13 +13,16 @@
   </a>
 </p>
 
-[This extension](https://github.com/Chris56974/ruby-and-rails-snippets) (which can also be found on the [marketplace](https://marketplace.visualstudio.com/items?itemName=Cjay.ruby-and-rails-snippets)) is very similar to [Vense's rails extension](https://marketplace.visualstudio.com/items?itemName=Vense.rails-snippets) and [Peng Lv's snippets](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby) but with my own twists and added snippets. I use the [vim extension](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim), so my snippets are likely biased towards vim users (I use "o"/"O" & "j"/"k" to jump around). This extension still needs a lot of work.
+[This extension](https://github.com/Chris56974/ruby-and-rails-snippets) (which can also be found on the [marketplace](https://marketplace.visualstudio.com/items?itemName=Cjay.ruby-and-rails-snippets)) is very similar to [Vense's rails extension](https://marketplace.visualstudio.com/items?itemName=Vense.rails-snippets) and [Peng Lv's snippets](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby) but with my own twists and added snippets.
+
+By default, intellisense does NOT work inside of code snippets (because intellisense and snippets both use the TAB key). If you want to mess around with your settings and enable it anyway you can check out [this stackoverflow post](https://stackoverflow.com/questions/55683145). I prefer having more intellisense, so a lot of these snippets will end earlier than you would expect. I also like to use the vim extension in vscode, so these snippets are biased towards vim users (I use j/k/o/O to move around). If this is not to your liking, I recommend using the previous two extensions instead. You're also free to fork/mess around with this extension as you wish (MIT Licensed).
 
 <a href="https://imgflip.com/gif/34pykn"><img src="https://i.imgflip.com/34pykn.gif" title="made at imgflip.com"/></a>
 
 ## Supported File Types
 
 - Ruby (.rb)
+- Embedded Ruby (.erb)
 
 ### Help
 
@@ -36,145 +39,77 @@
 ## Ruby snippets
 
 ```ruby
-# frozen_string_literal_true
+# frozen_string_literal_true # fr
 
-do $0 end # do
-else $0 end # else
+map { |$0|   }      # map
+map { |$1| $0 }     # mapp
+each { |$0| }       # each
+each { |$1| $0 }    # eachh
+select { |$0| }     # select
+select { |$1| $0 }  # selectt
 
-# if
-if $1 
+inject($1) { |$0| } # injent
+inject { |$0| }     # injectt
+all? { |$0| }       # all
+all? { |$1| $0 }    # alll
+any? { |$0| }       # any
+any? { |$1| $0 }    # anyy
+
+for $1 in $0 do # for
+end
+
+for $1 in $2 do # forr
+  $0
+end
+
+loop do # loop (infinite)
+  $0
+end
+
+# same pattern for while/until/module/unless
+while $0 # while
+end
+
+while $1 # whilee
+  $0
+end
+
+do # do
   $0 
 end
 
-# ifelse
-if $1
-  $2
+if $0 # if
+end
+
+if $0 # ifelse.. 
 else
+end
+
+def $0 # def
+end
+
+begin # begin
+  $0
+rescue => 
+end
+
+class $1 # cla
   $0
 end
 
-# ifelsif
-if $1
-  $2
-elsif $3
-  $0
-end
-
-# ifelseifelse
-if $1
-  $2
-elsif
-  $3
-else
-  $0
-end
-
-first(${quantity})  # first
-find_by(${1:key}: ${2:value}) # find_by
-find_by(${1:id_name}: params[:${2:param}]) # find_by_params
-where($0)
-increment(:${1:id}) # increment
-order(${1:column}: :${2:desc}) # order
-limit(${quantity})  # limit
-
-def ${1:name}
-  $2
-end
-
-${1:array}.map { |${2:i}| $0} # map
-${1:array}.select { |${2:i}| $0} # select
-${1:array}.inject(${2:0}) { |{$3:acc}, ${4:i}| $0} # inject
-${1:array}.all? {|${2:i}| $0} # all?
-${1:array}.any? {|${2:i}| $0} # any?
-${1:items}.each do |${2:item}| $0 end # each
-
-begin
-  $1
-rescue => exception
-  $0
-end
-
-begin
-  $1
-rescue => exception
-  $2
-ensure 
-  $3
-end
-
-begin
-  $1
-rescue => exception
-  $2
-else
-  $3
-end
-
-begin
-  $1
-rescue => exception
-  $2
-else
-  $3
-ensure 
-  $4
-end
-
-# cla
-class ${1:ClassName}
-  $0
+def initialize($0) # init
 end
 
 # cla1, cla2, cla3...
-class ${1:ClassName}
-  def initialize(${2:first})
-    @${2:first} = ${2:first}
+class $1
+  def initialize($2)
+    @$2 = $2
   end
   $0
 end
 
 # clex
-class ${1:ClassName} < ${2:ParentClass}
-  $0
-end
-
-# for
-for ${1:value} in ${2:enumerable} do
-  $0
-end
-
-# loop
-loop do
-  $0
-end
-
-while ${1:test}
-  $0
-end
-
-until ${1:test}
-  $0
-end
-
-module ${1:ModuleName}
-  $0
-end
-
-unless ${1:test} 
-  $0
-end 
-
-unless ${1:test}
-  $2
-else 
-  $3
-end 
-
-namespace :{1} do
-  desc '$2',
-  task $3: :environment do
-    $4
-  end
+class $1 < $0
 end
 ```
 
@@ -183,6 +118,11 @@ end
 ```ruby
 only: %i[${1:method}]   # only
 except: %i[${1:method}] # except
+
+# Active Record
+find_by(${1:key}: ${2:value})              # find_by
+find_by(${1:id_name}: params[:${2:param}]) # find_by_params
+where($0)
 
 # Routing
 get '/${1:route}', to: '${2:controller}#${3:method}'    # get
@@ -278,7 +218,6 @@ end
 
 def destroy 
   $0
-
 end 
 
 # crud
@@ -323,11 +262,8 @@ before_action :${1:id}
 <% end %>
 
 <%= f.time_zone_select :${1:id_name} %>
-
 <%= range_field (:${1:model_name}, :${2:id_name}, in: ${3:1..100}) %>
-
 <%= select_tag (:${1:id_name}, options_for_select(${2:options}))%>
-
 <%= color_field :${$1:id_name} %>
 
 options_for_select([${1:options}])$0 
