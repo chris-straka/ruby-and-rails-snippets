@@ -79,6 +79,14 @@
     "prefix": "untill",
     "body": "until $1\n\t$0\nend"
   },
+  "unless": {
+    "prefix": "unless",
+    "body": "unless $0\n\t\nend"
+  },
+  "unlesss": {
+    "prefix": "unlesss",
+    "body": "unless $1\n\t$0\nend"
+  },
   "module": {
     "prefix": "module",
     "body": "module $0\n\t\nend"
@@ -87,13 +95,17 @@
     "prefix": "modulee",
     "body": "module $1\n\t$0\nend"
   },
-  "unless": {
-    "prefix": "unless",
-    "body": "unless $0\n\t\nend"
+  "require": {
+    "prefix": "req",
+    "body": "require '$0'"
   },
-  "unlesss": {
-    "prefix": "unlesss",
-    "body": "unless $1\n\t$0\nend"
+  "requireAlt": {
+    "prefix": "reqq",
+    "body": "require(:$0)"
+  },
+  "include": {
+    "prefix": "include",
+    "body": "include($0)"
   },
   "do": {
     "prefix": "do",

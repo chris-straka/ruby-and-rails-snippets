@@ -1,4 +1,12 @@
 {
+  "only": {
+    "prefix": "only",
+    "body": "only: %i[${1:method}]"
+  },
+  "except": {
+    "prefix": "except",
+    "body": "except: %i[${1:method}]"
+  },
   "find_by": {
     "prefix": "find_by",
     "body": "find_by(${1:key}: ${2:value})"
@@ -7,71 +15,48 @@
     "prefix": "find_by_params",
     "body": "find_by(${1:id_name}: params[:${2:param}])"
   },
+  "before_action": {
+    "prefix": "before_action",
+    "body": "before_action :${1:id}"
+  },
   "where": {
     "prefix": "where",
-    "body": "where(${condition})",
-    "description": "where(condition)",
-    "scope": "source.ruby"
+    "body": "where(${condition})"
   },
-  "Rake Task": {
+  "rake": {
     "prefix": "rake",
-    "description": "Create a Rake Task",
     "body": [
-      "namespace :${1} do",
-      "\tdesc \"${2}\"",
-      "\ttask ${3}: :environment do",
-      "\t\t${4}",
+      "namespace :$1 do",
+      "\tdesc \"$2\"",
+      "\ttask $3: :environment do",
+      "\t\t$4",
       "\tend",
       "end"
     ]
   },
-  "only": {
-    "prefix": "only",
-    "body": "only: %i[${1:method}]",
-    "description": "rails only method",
-    "scope": "meta.rails.routes"
-  },
-  "except": {
-    "prefix": "except",
-    "body": "except: %i[${1:method}]",
-    "description": "rails except method",
-    "scope": "meta.rails.routes"
-  },
   "route get": {
     "prefix": "get",
-    "body": "get '/${1:route}', to: '${2:controller}#${3:method}'",
-    "description": "rails get route",
-    "scope": "meta.rails.routes"
+    "body": "get '/${1:route}', to: '${2:controller}#${3:method}'"
   },
   "route post": {
     "prefix": "post",
-    "body": "post '/${1:route}', to: '${2:controller}#${3:method}'",
-    "description": "rails post route",
-    "scope": "meta.rails.routes"
+    "body": "post '/${1:route}', to: '${2:controller}#${3:method}'"
   },
   "route patch": {
     "prefix": "patch",
-    "body": "patch '/${1:route}', to: '${2:controller}#${3:method}'",
-    "description": "rails patch route",
-    "scope": "meta.rails.routes"
+    "body": "patch '/${1:route}', to: '${2:controller}#${3:method}'"
   },
   "route put": {
     "prefix": "put",
-    "body": "put '/${1:route}', to: '${2:controller}#${3:method}'",
-    "description": "rails put route",
-    "scope": "meta.rails.routes"
+    "body": "put '/${1:route}', to: '${2:controller}#${3:method}'"
   },
   "route delete": {
     "prefix": "delete",
-    "body": "delete '/${1:route}', to: '${2:controller}#${3:method}'",
-    "description": "rails route of delete",
-    "scope": "meta.rails.routes"
+    "body": "delete '/${1:route}', to: '${2:controller}#${3:method}'"
   },
   "resources": {
     "prefix": "res",
-    "body": "resources :${1:res_name}",
-    "description": "resources without a custom collection block",
-    "scope": "meta.rails.routes"
+    "body": "resources :${1:res_name}"
   },
   "resources block": {
     "prefix": "reb",
@@ -79,9 +64,7 @@
       "resources :${1:res_name} do",
       "\t$2",
       "end"
-    ],
-    "description": "resources with an empty params block",
-    "scope": "meta.rails.routes"
+    ]
   },
   "resources collection": {
     "prefix": "rescb",
@@ -91,9 +74,7 @@
       "\t\t$2",
       "\tend",
       "end"
-    ],
-    "description": "resources with a custom collection block",
-    "scope": "meta.rails.routes"
+    ]
   },
   "resources_member": {
     "prefix": "resmember",
@@ -103,292 +84,163 @@
       "\t\t$2",
       "\tend",
       "end"
-    ],
-    "description": "resources with a custom member block",
-    "scope": "meta.rails.routes"
-  },
-  "resource": {
-    "prefix": "re",
-    "body": "resource :${res_name}",
-    "description": "resource without a custom collection block",
-    "scope": "meta.rails.routes"
-  },
-  "resource_block": {
-    "prefix": "reb",
-    "body": [
-      "resource :${1:res_name} do",
-      "\t$2",
-      "end"
-    ],
-    "description": "resource with an empty params block",
-    "scope": "meta.rails.routes"
-  },
-  "resource_collection": {
-    "prefix": "recb",
-    "body": [
-      "resource :${1:res_name} do",
-      "\tcollection do",
-      "\t\t$2",
-      "\tend",
-      "end"
-    ],
-    "description": "resource with a custom collection block",
-    "scope": "meta.rails.routes"
-  },
-  "resource_member": {
-    "prefix": "re member",
-    "body": [
-      "resource :${1:res_name} do",
-      "\tmember do",
-      "\t\t$2",
-      "\tend",
-      "end"
-    ],
-    "description": "resource with a custom member block",
-    "scope": "meta.rails.routes"
+    ]
   },
   "member": {
     "prefix": "member",
     "body": [
       "member do",
-      "\t$1",
+      "\t$0",
       "end"
-    ],
-    "description": "member block",
-    "scope": "meta.rails.routes"
+    ]
   },
   "collection": {
     "prefix": "collection",
     "body": [
       "collection do",
-      "\t$1",
+      "\t$0",
       "end"
-    ],
-    "description": "collection block",
-    "scope": "meta.rails.routes"
+    ]
   },
   "render": {
     "prefix": "render",
-    "body": "render $0",
-    "description": "render path",
-    "scope": "source.ruby.rails"
+    "body": "render $0"
   },
   "redirect_to": {
     "prefix": "redirect_to",
-    "body": "redirect_to ${1:path}",
-    "description": "redirect_to path ",
-    "scope": "source.ruby.rails"
+    "body": "redirect_to ${1:path}"
   },
   "redirect_to_msg": {
     "prefix": "redirect_to_msg",
-    "body": "redirect_to ${path}, notice: '${msg}'",
-    "description": "redirect_to path, notice: msg",
-    "scope": "source.ruby.rails"
+    "body": "redirect_to ${path}, notice: '${msg}'"
   },
   "has_one": {
     "prefix": "has_one",
-    "body": "has_one :",
-    "description": "has_one :",
-    "scope": "source.ruby.rails"
+    "body": "has_one :"
   },
   "dependent": {
     "prefix": "dep",
-    "body": "dependent: :${1:id}",
-    "description": "model dependent",
-    "scope": "meta.rails.migration.create_table, meta.rails.migration.change_table"
+    "body": "dependent: :${1:id}"
   },
   "has_one_dependent": {
     "prefix": "has_one_dep",
-    "body": "has_one :${1:id}, dependent: :${2:type}",
-    "description": "has_one :id, dependent: :type",
-    "scope": "source.ruby.rails"
+    "body": "has_one :${1:id}, dependent: :${2:type}"
   },
   "has_many": {
     "prefix": "hasmany",
-    "body": "has_many :$0",
-    "description": "has_many :",
-    "scope": "source.ruby.rails"
+    "body": "has_many :$0"
   },
   "has_many_through": {
     "prefix": "has_many_through",
-    "body": "has_many :${1:model1}, through: :${2:model2}",
-    "description": "has_many :model1, through: :model2",
-    "scope": "source.ruby.rails"
+    "body": "has_many :${1:model1}, through: :${2:model2}"
   },
   "has_many_dependent": {
     "prefix": "has_many_dependent",
-    "body": "has_many :${1:id}, dependent: :${2:type}",
-    "description": "has_many :id, dependent: :type",
-    "scope": "source.ruby.rails"
+    "body": "has_many :${1:id}, dependent: :${2:type}"
   },
   "belongs_to": {
     "prefix": "belongs_to",
-    "body": "belongs_to :",
-    "description": "belongs_to :",
-    "scope": "source.ruby.rails"
+    "body": "belongs_to :"
   },
   "belongs_to_cache": {
     "prefix": "belongs_to_cache",
-    "body": "belongs_to :${1:id}, cache: ${2:true}",
-    "description": "belongs_to :id, cache: true",
-    "scope": "source.ruby.rails"
+    "body": "belongs_to :${1:id}, cache: ${2:true}"
   },
   "has_and_belongs_to_many": {
     "prefix": "has_and_belongs_to_many",
-    "body": "has_and_belongs_to_many :${1:id}",
-    "description": "has_and_belongs_to_many :id",
-    "scope": "source.ruby.rails"
+    "body": "has_and_belongs_to_many :${1:id}"
   },
   "add_column": {
     "prefix": "add_column",
-    "body": "add_column :${1:table}, :${2:column}, :${3:type}",
-    "description": "add_column :table, :column, :type",
-    "scope": "meta.rails.migration.create_table, meta.rails.migration.change_table"
+    "body": "add_column :${1:table}, :${2:column}, :${3:type}"
   },
   "add_reference": {
     "prefix": "add_reference",
-    "body": "add_reference :${1:table}, :${2:column}, foreign_key: true",
-    "description": "add_reference :table, :column, foreign_key: true",
-    "scope": "meta.rails.migration.create_table, meta.rails.migration.change_table"
+    "body": "add_reference :${1:table}, :${2:column}, foreign_key: true"
   },
   "t.binary(tcbi)": {
     "prefix": "binary",
-    "body": "t.binary :",
-    "description": "Table column binary",
-    "scope": "meta.rails.migration.create_table, meta.rails.migration.change_table"
+    "body": "t.binary :"
   },
   "t.boolean(tcb)": {
     "prefix": "boolean",
-    "body": "t.boolean :",
-    "description": "Table column boolean",
-    "scope": "meta.rails.migration.create_table, meta.rails.migration.change_table"
+    "body": "t.boolean :"
   },
   "t.date(tcda)": {
     "prefix": "date",
-    "body": "t.date :",
-    "description": "Table column date",
-    "scope": "meta.rails.migration.create_table, meta.rails.migration.change_table"
+    "body": "t.date :"
   },
   "t.datetime(tcdt)": {
     "prefix": "datetime",
-    "body": "t.datetime :",
-    "description": "Table column datetime",
-    "scope": "meta.rails.migration.create_table, meta.rails.migration.change_table"
+    "body": "t.datetime :"
   },
   "t.decimal(tcd)": {
     "prefix": "decimal",
-    "body": "t.decimal :",
-    "description": "Table column decimal",
-    "scope": "meta.rails.migration.create_table, meta.rails.migration.change_table"
+    "body": "t.decimal :"
   },
   "t.float(tcf)": {
     "prefix": "float",
-    "body": "t.float :",
-    "description": "Table column float",
-    "scope": "meta.rails.migration.create_table, meta.rails.migration.change_table"
+    "body": "t.float :"
   },
   "t.integer(tci)": {
     "prefix": "integer",
-    "body": "t.integer :",
-    "description": "Table column integer",
-    "scope": "meta.rails.migration.create_table, meta.rails.migration.change_table"
+    "body": "t.integer :"
   },
   "t.references(tcr)": {
     "prefix": "references",
-    "body": "t.references :",
-    "description": "Table column(s) references",
-    "scope": "meta.rails.migration.create_table, meta.rails.migration.change_table"
+    "body": "t.references :"
   },
   "t.string(tcs)": {
     "prefix": "string",
-    "body": "t.string :",
-    "description": "Table column string",
-    "scope": "meta.rails.migration.create_table, meta.rails.migration.change_table"
+    "body": "t.string :"
   },
   "t.text(tct)": {
     "prefix": "text",
-    "body": "t.text :",
-    "description": "Table column text",
-    "scope": "meta.rails.migration.create_table, meta.rails.migration.change_table"
+    "body": "t.text :"
   },
   "t.time(tcti)": {
     "prefix": "time",
-    "body": "t.time :",
-    "description": "Table column time",
-    "scope": "meta.rails.migration.create_table, meta.rails.migration.change_table"
+    "body": "t.time :"
   },
   "t.timestamp(tcts)": {
     "prefix": "timestamp",
-    "body": "t.timestamp :",
-    "description": "Table column timestamp",
-    "scope": "meta.rails.migration.create_table, meta.rails.migration.change_table"
+    "body": "t.timestamp :"
   },
   "t.timestamps(tctss)": {
     "prefix": "timestamps",
-    "body": "t.timestamps\n$0",
-    "description": "Table column timestamps",
-    "scope": "meta.rails.migration.create_table, meta.rails.migration.change_table"
+    "body": "t.timestamps\n$0"
   },
   "validates": {
     "prefix": "validates",
-    "body": "validates :${1:column}, presence: true",
-    "description": "validates :column, presence: true",
-    "scope": "source.ruby"
+    "body": "validates :${1:column}, presence: true"
   },
   "params": {
     "prefix": "params",
-    "body": "params.require(:${1:id_name}).permit(:${2:variable})",
-    "description": "params.require(:id_name).permit(:variable)",
-    "scope": "source.ruby"
+    "body": "params.require(:$1).permit(:$0)"
   },
   "param1": {
     "prefix": "para1",
-    "body": "params['$1']$0",
-    "description": "parameter with single field"
+    "body": "params['$0']"
   },
   "param2": {
     "prefix": "para2",
-    "body": "params['$1']['$2']$0",
-    "description": "two parameters "
+    "body": "params['$1']['$0']"
   },
   "param3": {
     "prefix": "para3",
-    "body": "params['$1']['$2']['$3']$0",
-    "description": "three parameters"
-  },
-  "require": {
-    "prefix": "req",
-    "body": "require '$1'$0",
-    "description": "require(:id)",
-    "scope": "source.ruby"
-  },
-  "requireAlt": {
-    "prefix": "reqq",
-    "body": "require(:$1)$0",
-    "description": "require(:id)",
-    "scope": "source.ruby"
-  },
-  "include": {
-    "prefix": "include",
-    "body": "include($1)$0",
-    "description": "require(:id)",
-    "scope": "source.ruby"
+    "body": "params['$1']['$2']['$0']"
   },
   "permit": {
     "prefix": "permit",
-    "body": "permit(${1:id})",
-    "description": "permit(:id)",
-    "scope": "source.ruby"
+    "body": "permit($0)"
   },
   "controller": {
     "prefix": "controller",
     "body": [
       "class ${1:Name}Controller < ApplicationController",
-      "\t$2",
+      "\t$0",
       "end"
-    ],
-    "description": "class Controller",
-    "scope": "source.ruby"
+    ]
   },
   "index_method": {
     "prefix": "index",
@@ -396,9 +248,7 @@
       "def index",
       "\t$0",
       "end"
-    ],
-    "description": "method index",
-    "scope": "source.ruby"
+    ]
   },
   "create_method": {
     "prefix": "create",
@@ -406,9 +256,7 @@
       "def create",
       "\t$0",
       "end"
-    ],
-    "description": "method create",
-    "scope": "source.ruby"
+    ]
   },
   "new_method": {
     "prefix": "new",
@@ -416,9 +264,7 @@
       "def new",
       "\t$0",
       "end"
-    ],
-    "description": "method new",
-    "scope": "source.ruby"
+    ]
   },
   "edit_method": {
     "prefix": "edit",
@@ -426,9 +272,7 @@
       "def edit",
       "\t$0",
       "end"
-    ],
-    "description": "method edit",
-    "scope": "source.ruby"
+    ]
   },
   "show": {
     "prefix": "show",
@@ -436,9 +280,7 @@
       "def show",
       "\t$0",
       "end"
-    ],
-    "description": "method show",
-    "scope": "source.ruby"
+    ]
   },
   "update": {
     "prefix": "update",
@@ -446,9 +288,7 @@
       "def update",
       "\t$0",
       "end"
-    ],
-    "description": "method update",
-    "scope": "source.ruby"
+    ]
   },
   "destroy": {
     "prefix": "destroy",
@@ -456,15 +296,7 @@
       "def destroy",
       "\t$0",
       "end"
-    ],
-    "description": "method destroy",
-    "scope": "source.ruby"
-  },
-  "before_action": {
-    "prefix": "before_action",
-    "body": "before_action :${1:id}",
-    "description": "before action",
-    "scope": "source.ruby"
+    ]
   },
   "CRUD": {
     "prefix": "CRUD",

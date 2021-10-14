@@ -1,23 +1,19 @@
 {
   "ruby-expression(<% %>)": {
     "prefix": "pre",
-    "body": "<% $1 %>$0",
-    "description": "rails expression for <% %>"
+    "body": "<% $1 %>$0"
   },
   "ruby-expression-block(<% %>)": {
     "prefix": "preb",
-    "body": "<% $1 %>\n\t$0\n<% end %>",
-    "description": "rails expression block with end"
+    "body": "<% $1 %>\n\t$0\n<% end %>"
   },
   "ruby-expression(<%= %>)": {
     "prefix": "pe",
-    "body": "<%= $1 %>",
-    "description": "rails expression(<%= %>)"
+    "body": "<%= $1 %>"
   },
   "ruby-expression-block(<%= %>)": {
     "prefix": "peb",
-    "body": "<%= $1 %>\n\t$0\n<% end %>",
-    "description": "rails expression(<%= %>)"
+    "body": "<%= $1 %>\n\t$0\n<% end %>"
   },
   "each": {
     "prefix": "each",
@@ -25,8 +21,7 @@
       "<% ${1:items}.each do |${2:item}| %>",
       "\t$3",
       "<% end %>"
-    ],
-    "description": "rails each"
+    ]
   },
   "form_for": {
     "prefix": "formfor",
@@ -34,180 +29,143 @@
       "<%= form_for ${1:variable} do |${2:f}| %>",
       "\t$3",
       "<% end %>"
-    ],
-    "description": "rails form_for"
+    ]
   },
   "time_zone_select": {
     "prefix": "timezone",
-    "body": "<%= f.time_zone_select :${1:column_name} %>",
-    "description": "rails time_zone_select"
+    "body": "<%= f.time_zone_select :${1:column_name} %>"
   },
   "range_field": {
     "prefix": "rangefield",
-    "body": "<%= range_field (:${1:model_name}, :${2:column_name}, in: ${3:1..100}) %>",
-    "description": "rails range_field"
+    "body": "<%= range_field (:${1:model_name}, :${2:column_name}, in: ${3:1..100}) %>"
   },
   "select_tag": {
     "prefix": "selecttag",
-    "body": "<%= select_tag (:${1:id_name}, options_for_select(${2:options})) %>",
-    "description": "rails select_tag"
+    "body": "<%= select_tag (:${1:id_name}, options_for_select(${2:options})) %>"
   },
   "color_field": {
     "prefix": "colorfield",
-    "body": "<%= color_field :${$1:id_name} %>",
-    "description": "rails color_field"
+    "body": "<%= color_field :${$1:id_name} %>"
   },
   "options_for_select": {
     "prefix": "options_for_select",
-    "body": "options_for_select([${1:options}])$0",
-    "description": "rails options_for_select -- example:[['Lisbon', 1], ['Madrid', 2], ...], 2"
+    "body": "options_for_select([${1:options}])$0"
   },
   "render": {
     "prefix": "render",
-    "body": "<%= render ${1:path} %>$0",
-    "description": "rails render"
+    "body": "<%= render ${1:path} %>$0"
   },
   "render_variable": {
     "prefix": "rendervar",
-    "body": "<%= render ${1:path}, ${2:variable1}: ${3:variable2} %>",
-    "description": "render variable (rails)"
+    "body": "<%= render ${1:path}, ${2:variable1}: ${3:variable2} %>"
   },
   "link_to": {
     "prefix": "lt",
-    "body": "<%= link_to '${1:text}', ${2:path} %>",
-    "description": "link_to"
+    "body": "<%= link_to '${1:text}', ${2:path} %>"
   },
   "link_to class": {
     "prefix": "ltc",
-    "body": "<%= link_to '${1:text}', ${2:path}, class:'${3:class}' %>",
-    "description": "link_to_class (rails)"
+    "body": "<%= link_to '${1:text}', ${2:path}, class:'${3:class}' %>"
   },
   "link_to, method, data": {
     "prefix": "ltmd",
-    "body": "<%= link_to '${1:link_text}', ${2:path}, method: '${3:method}', data:{ ${4:data} } %>",
-    "description": "link_to_method_data (rails)"
+    "body": "<%= link_to '${1:link_text}', ${2:path}, method: '${3:method}', data:{ ${4:data} } %>"
   },
   "link_to, method, data, class": {
     "prefix": "ltmdc",
-    "body": "<%= link_to '${1:link_text}', ${2:path}, method: '${3:method}', data:{ ${4:data} }, class:'${5:class}' %>",
-    "description": "rails link_to_method_data_class (rails)"
+    "body": "<%= link_to '${1:link_text}', ${2:path}, method: '${3:method}', data:{ ${4:data} }, class:'${5:class}' %>"
   },
   "link_to, method, confirm": {
     "prefix": "ltmcon",
-    "body": "<%= link_to \"${1:link_text}\", ${2:path}, method: \"${3:method}\", data:{ confirm: \"${4:confirm}\"} %>",
-    "description": "rails link_to_method_confirm (rails)"
+    "body": "<%= link_to \"${1:link_text}\", ${2:path}, method: \"${3:method}\", data:{ confirm: \"${4:confirm}\"} %>"
   },
   "link_to, method, confirm, class": {
     "prefix": "ltmconc",
-    "body": "<%= link_to \"${1:link_text}\", ${2:path}, method: \"${3:method}\", data:{ confirm: \"${4:confirm}\"}, class:\"${5:class}\" %>",
-    "description": "rails link_to_method_confirm_class"
+    "body": "<%= link_to \"${1:link_text}\", ${2:path}, method: \"${3:method}\", data:{ confirm: \"${4:confirm}\"}, class:\"${5:class}\" %>"
   },
   "submit": {
     "prefix": "submit",
-    "body": "<%= f.submit %>$0",
-    "description": "rails form submit"
+    "body": "<%= f.submit %>$0"
   },
   "label": {
     "prefix": "label",
-    "body": "<%= f.label :${1:id_name}, '${2:text}' %>",
-    "description": "rails form label"
+    "body": "<%= f.label :${1:id_name}, '${2:text}' %>"
   },
   "number_field": {
     "prefix": "numberfield",
-    "body": "<%= f.number_field (:${1:id_name}, in: ${2:1.0..20.0}, step: ${3:0.5}) %>",
-    "description": "rails number_field"
+    "body": "<%= f.number_field (:${1:id_name}, in: ${2:1.0..20.0}, step: ${3:0.5}) %>"
   },
   "time_field": {
     "prefix": "timefield",
-    "body": "<%= f.time_field :${1:id_name} %>",
-    "description": "rails time_field"
+    "body": "<%= f.time_field :${1:id_name} %>"
   },
   "hidden_field": {
     "prefix": "hiddenfield",
-    "body": "<%= f.hidden_field :${1:id_name} %>",
-    "description": "rails hidden_field"
+    "body": "<%= f.hidden_field :${1:id_name} %>"
   },
   "email_field": {
     "prefix": "emailfield",
-    "body": [
-      "<%= f.email_field :${1:id_name} %>"
-    ],
-    "description": "rails email_field"
+    "body": "<%= f.email_field :${1:id_name} %>"
   },
   "url_field": {
     "prefix": "urlfield",
-    "body": "<%= f.url_field :${1:id_name} %>",
-    "description": "rails url_field"
+    "body": "<%= f.url_field :${1:id_name} %>"
   },
   "password_field": {
     "prefix": "passwordfield",
-    "body": "<%= f.password_field :${1:id_name} %>",
-    "description": "rails password_field"
+    "body": "<%= f.password_field :${1:id_name} %>"
   },
   "text_area": {
     "prefix": "textarea",
-    "body": "<%= f.text_area :${1:id_name} %>",
-    "description": "rails text_area"
+    "body": "<%= f.text_area :${1:id_name} %>"
   },
   "check_box": {
     "prefix": "checkbox",
-    "body": "<%= f.check_box :${1:id_name} %>",
-    "description": "rails check_box"
+    "body": "<%= f.check_box :${1:id_name} %>"
   },
   "text_field": {
     "prefix": "textfield",
-    "body":"<%= f.text_field :${1:id_name} %>",
-    "description": "rails text_field"
+    "body":"<%= f.text_field :${1:id_name} %>"
   },
   "date_field": {
     "prefix": "datefield",
-    "body": "<%= f.date_field :${1:id_name} %>",
-    "description": "rails date_field"
+    "body": "<%= f.date_field :${1:id_name} %>"
   },
   "datetime_field": {
     "prefix": "datetimefield",
-    "body": "<%= f.datetime_field :${1:id_name} %>",
-    "description": "rails datetime_field"
+    "body": "<%= f.datetime_field :${1:id_name} %>"
   },
   "radio_button": {
     "prefix": "radiobutton",
-    "body": "<%= f.radio_button :${1:name}, :value => '${2:value}' %>",
-    "description": "rails radio_button,id will be ${name}_${value}"
+    "body": "<%= f.radio_button :${1:name}, :value => '${2:value}' %>"
   },
   "input": {
     "prefix": "input",
-    "body": "<%= f.input :${1:id}, label: '${2:text}' %>",
-    "description": "rails input field"
+    "body": "<%= f.input :${1:id}, label: '${2:text}' %>"
   },
   "path": {
     "prefix": "path",
-    "body": "${1:path}_path",
-    "description": "rails path"
+    "body": "${1:path}_path"
   },
   "new_path": {
     "prefix": "newpath",
-    "body": "new_${1:path}_path",
-    "description": "rails new_path"
+    "body": "new_${1:path}_path"
   },
   "edit_path": {
     "prefix": "editpath",
-    "body": "edit_${1:path}_path(${2:variable})",
-    "description": "rails edit_path(variable)"
+    "body": "edit_${1:path}_path(${2:variable})"
   },
   "if": {
     "prefix": "if",
-    "body": "<% if $1 %>\n\t$2\n<% end %>",
-    "description": "rails if"
+    "body": "<% if $1 %>\n\t$2\n<% end %>"
   },
   "else": {
     "prefix": "else",
-    "body": "<% else %>",
-    "description": "else"
+    "body": "<% else %>"
   },
   "elsif": {
     "prefix": "elsif",
-    "body": "<% elsif $1 %>$0",
-    "description": "elsif"
+    "body": "<% elsif $1 %>$0"
   },
   "if else": {
     "prefix": "ifelse",
@@ -217,8 +175,7 @@
       "<% else %>",  
       "\t$3",
       "<% end %>"
-    ],
-    "description": "rails if else"
+    ]
   },
   "if elsif": {
     "prefix": "if elsif",
@@ -228,8 +185,7 @@
       "<% elseif %>",
       "\t$3",
       "<% end %>"
-    ],
-    "description": "rails if elsif"
+    ]
   },
   "if elsif else": {
     "prefix": "if elsif else",
@@ -241,8 +197,7 @@
       "<% else %>",
       "\t$4",
       "<% end %>"
-    ],
-    "description": "rails if elsif else"
+    ]
   },
   "unless": {
     "prefix": "unless",
@@ -250,8 +205,7 @@
       "<% unless ${1:falsevalue} %>",
       "\t$2",
       "<% end %>"
-    ],
-    "description": "unless .. end"
+    ]
   },
   "unlessElse": {
     "prefix": "unless else",
@@ -261,20 +215,10 @@
       "<% else %>",
       "\t$3",
       "<% end %>"
-    ],
-    "description": "unless .. end"
+    ]
   },
   "%end": {
     "prefix": "%end",
-    "body": "<% end %>",
-    "description": "end"
-  },
-  "gitbashssh": {
-    "prefix": "gitbashssh",
-    "body": [
-      "eval $(ssh-agent -s)",
-      "ssh-add ~/.ssh/id_rsa"
-    ],
-    "description": "place into gitbash to save ssh key so you can push without entering your password"
+    "body": "<% end %>"
   }
 }
