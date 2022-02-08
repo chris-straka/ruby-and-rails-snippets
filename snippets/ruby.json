@@ -5,7 +5,7 @@
   },
   "map": {
     "prefix": "map",
-    "body": "map{ |$0| }"
+    "body": "map { |$0| }"
   },
   "mapp": {
     "prefix": "mapp",
@@ -13,7 +13,7 @@
   },
   "each": {
     "prefix": "each",
-    "body": "map { |$0| }"
+    "body": "each { |$0| }"
   },
   "eachh": {
     "prefix": "eachh",
@@ -148,12 +148,12 @@
     "body": "class $1\n\tinitialize($2)\n\t@$2 = $2\nend\n$0\nend"
   },
   "cla2": {
-    "prefix": "cla1",
-    "body": "class $1\n\tinitialize($2, $3)\n\t@$2 = $2\nend\n$0\nend"
+    "prefix": "cla2",
+    "body": "class $1\n\tinitialize($2, $3)\n\t@$2 = $2\n\t@$3 = $3\nend\n$0\nend"
   },
   "cla3": {
-    "prefix": "cla1",
-    "body": "class $1\n\tinitialize($2)\n\t@$2 = $2\nend\n$0\nend"
+    "prefix": "cla3",
+    "body": "class $1\n\tinitialize($2, $3, $4)\n\t@$2 = $2\n\t@$3 = $3\n\t@$4 = $4\nend\n$0\nend"
   },
   "ClassExtends": {
     "prefix": "clex",
