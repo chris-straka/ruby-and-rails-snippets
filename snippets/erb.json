@@ -59,6 +59,14 @@
     "prefix": "rendervar",
     "body": "<%= render ${1:path}, ${2:variable1}: ${3:variable2} %>"
   },
+  "translate": {
+    "prefix": "translate",
+    "body": "<%= t('${1:key}') %>"
+  },
+  "localize": {
+    "prefix": "localize",
+    "body": "<%= l(${1:date_time}), format: :${2:format}) %>"
+  },
   "link_to": {
     "prefix": "lt",
     "body": "<%= link_to '${1:text}', ${2:path} %>"
@@ -172,7 +180,7 @@
     "body": [
       "<% if $1 %>",
       "\t$2",
-      "<% else %>",  
+      "<% else %>",
       "\t$3",
       "<% end %>"
     ]
